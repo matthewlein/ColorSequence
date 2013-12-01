@@ -5,19 +5,18 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-
     grunt.initConfig({
-        /*
+
         connect: {
             server: {
                 options: {
                     port: 9001,
-                    base: '/'
+                    keepalive : false,
+                    open : true,
+                    livereload : true
                 }
             }
         },
-        */
-
         watch : {
             options: {
                 livereload: true,
@@ -32,11 +31,10 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.event.on('watch', function(action, filepath, target) {
-        grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
-    });
-
     // Default task(s).
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', [
+        'connect',
+        'watch'
+    ]);
 
 };
