@@ -21,7 +21,10 @@ module.exports = function(grunt) {
                 livereload: true,
                 interrupt: true,
             },
-            files: ['*'],
+            files: [
+                '**',
+                '!**/node_modules/**'
+            ],
             // tasks: ['jshint'],
         },
         jshint : {
